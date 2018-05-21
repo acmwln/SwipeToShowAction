@@ -28,3 +28,4 @@ var pullElement = new PullElement(options)
 pullElement.init()
 
 ```
+由于是手动配置的webpack，每次`npm start`后运行webpack打包，在build下面生成打包js文件，必须运行build下面的index.html才可以在浏览器访问到此组件的效果

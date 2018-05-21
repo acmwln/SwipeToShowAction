@@ -16,14 +16,19 @@ module.exports = {
                 query: { //babel的配置参数，可以写在.babelrc文件里也可以写在这里
                     presets: ['env', 'react']
                 }
-            }
+            },
+             {
+                test: /\.css/,
+                loader: 'style-loader!css-loader'
+            },
+                
         ]
     },
     plugins: [
         new HtmlWebpackPlugin({
             template: './public/index.html', //指定模板路径
             filename: 'index.html', //指定文件名
-        })
+        }),
     ]
 }
 

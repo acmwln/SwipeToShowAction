@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import ReactDom from 'react-dom';
+import _ from "lodash";
 import PullElement from 'pull-element'
 
 /**
@@ -37,16 +38,16 @@ export default class SwipeToShowAction extends Component {
         this.pullElement&&this.pullElement.destroy()
     }
     addOuterTouchStartListener() {
-        document.addEventListener('touchstart', this.handleOuterTouchStart)
+        document.addEventListener('touchstart', this.handleOuterTouchStart.bind(this))
     }
     removeOuterTouchStartListener() {
-        document.removeEventListener('touchstart', this.handleOuterTouchStart)
+        document.removeEventListener('touchstart', this.handleOuterTouchStart.bind(this))
     }
-    onDeleteClick = () => {
+    onDeleteClick() {
         this.props.onDeleteClick()
         this.pullElement.animateToOrigin()
     }
-    handleOuterTouchStart = ({ target }) => {
+    handleOuterTouchStart({ target }) {
         let node = this.container
         if (node !== target && !node.contains(target)) {
             this.pullElement.animateToOrigin()
@@ -74,7 +75,7 @@ export default class SwipeToShowAction extends Component {
         } else if (this.props.onDeleteClick) {
             return (
                 <div className="pro_del_btn">
-                    <span onClick={this.onDeleteClick}>删除</span>
+                    <span onClick={this.onDeleteClick.bind(this)}>删除</span>
                 </div>
             )
         }

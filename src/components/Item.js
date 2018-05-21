@@ -9,7 +9,7 @@ export default class Item extends Component {
                 }}
                 invalidMsg = ""
                 >
-                <div>
+                <div className="pro_list_item">
                     <p className="pro_list_name">
                         华泰境外短线滑雪保险 团队游接入保险项目用测试主险一
                     </p>
